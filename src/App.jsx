@@ -4,9 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [BugDescription, setBugDescription] = useState ('')
-  const [newBugPriority, setNewBugPriority] = useState ('')
-  const [newAsignee, setNewAssignee] = useState ('')
+  const [bugDescription, setBugDescription] = useState ('')
+  const [bugPriority, setBugPriority] = useState ('Medium')
+  const [assignee, setAssignee] = useState ('')
   const [bugList, setBugList] = useState ([])
 
   const addBug = () => {}
@@ -21,7 +21,19 @@ function App() {
           <label>
             Bug description
           </label>
-          <input type="text" id="BugDescription" value={BugDescription} onChange={event => setBugDescription(event.target.value)}/>
+          <input type="text" id="bugDescription" value={bugDescription} onChange={event => setBugDescription(event.target.value)}/>
+          <label>
+            Bug priority 
+          </label>
+          <select type="text" id="bugPriority" value={bugPriority} onChange={event => setBugPriority(event.target.value)}>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <label>
+            Assignee
+          </label>
+          <input type="text" id="assignee" value={assignee} onChange={event => setAssignee(event.target.value)}/>
         </form>
       </div>
     </>
