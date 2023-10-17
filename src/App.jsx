@@ -9,7 +9,9 @@ function App() {
   const [assignee, setAssignee] = useState ('')
   const [bugList, setBugList] = useState ([])
 
-  const addBug = () => {}
+  const addBug = (event) => {
+    event.preventDefault()
+  }
   const deleteBug = () => {}
 
   return (
@@ -34,6 +36,7 @@ function App() {
             Assignee
           </label>
           <input type="text" id="assignee" value={assignee} onChange={event => setAssignee(event.target.value)}/>
+          <button type="submit">Add Bug</button>
         </form>
       </div>
     </>
