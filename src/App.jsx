@@ -1,42 +1,26 @@
 import { useState } from 'react'
 import './App.css'
+import { BrowserRouter as Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Header from './pages/Header'
+import BugIndex from './pages/BugIndex'
+import BugEdit from './pages/BugEdit'
+import BugNew from './pages/BugNew'
+import BugShow from './pages/BugShow'
+import NotFound from './pages/NotFound'
+import Footer from './pages/Footer'
 
-function App() {
-  const [bugDescription, setBugDescription] = useState ('')
-  const [bugPriority, setBugPriority] = useState ('Medium')
-  const [assignee, setAssignee] = useState ('')
-  const [bugList, setBugList] = useState ([])
+const App = () => {
 
-  const addBug = (event) => {
-    event.preventDefault()
-  }
-  const deleteBug = () => {}
 
   return (
     <>
-      <div>
-        <h1>Bug Tracker</h1>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-        <form onSubmit={addBug}>
-          <label>
-            Bug description
-          </label>
-          <input type="text" id="bugDescription" value={bugDescription} onChange={event => setBugDescription(event.target.value)}/>
-          <label>
-            Bug priority 
-          </label>
-          <select type="text" id="bugPriority" value={bugPriority} onChange={event => setBugPriority(event.target.value)}>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-          <label>
-            Assignee
-          </label>
-          <input type="text" id="assignee" value={assignee} onChange={event => setAssignee(event.target.value)}/>
-          <button type="submit">Add Bug</button>
-        </form>
-      </div>
+      </Routes>
+      <Footer />
     </>
   )
 }
